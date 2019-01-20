@@ -1,2 +1,3 @@
-# ringbuffer
-a statically-allocated ring buffer template for up to 255 values of any type
+A statically-allocated ring buffer template for up to 255 values of any type in C++.
+
+This is a [basic building block](https://en.wikipedia.org/wiki/Circular_buffer) for such things as: buffering audio samples that are waiting to be sent to the playback device; buffering serial data in microcontroller applications (you can write multiple lines of output, but a UART interrupt handler can only send one byte at a time); capturing small buckets of data that will be continuously averaged (at any given moment, average = sum(rb.at(0..n)) / n); or anywhere that you only need to store a few of something, and either it will not accumulate, or if it does, the oldest data can be discarded when new data comes in.
